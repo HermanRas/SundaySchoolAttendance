@@ -1,0 +1,10 @@
+.idea/*
+/nbproject
+/config.php
+/build
+/docs/_build
+/vendor/
+.project
+/.vagrant/
+/puphpet/files/dot/ssh/
+*.bak
