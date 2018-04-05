@@ -1,2 +1,2 @@
 # SundaySchoolAttendance
-PHP CSS HTML5  Sunday School Attendance Mobile App
+PHP CSS HTML5 SQLite  Sunday School Attendance Mobile App
