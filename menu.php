@@ -15,9 +15,10 @@ and open the template in the editor.
         <div class="form-style-5">
             <form>
                 <fieldset>
-                <legend><span class="number">#</span> Saved !</legend>
-                Successfully Completed ! <br /><br />
-                <input type="button" value="Home" onclick='window.location = "menu.php";' />
+                <legend><span class="number">#</span> Teacher's Menu</legend>
+                <input type="button" value="Do Register" onclick='window.location = "register.php";' />
+                <input type="button" value="Add Student" onclick='window.location = "new.php";'/>
+                <input type="button" value="View Birthdays" onclick='window.location = "bdays.php";'/>
                 </fieldset>
             </form>
         </div>
