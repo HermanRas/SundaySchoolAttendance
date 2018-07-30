@@ -79,7 +79,7 @@ and open the template in the editor.
                 Number to recieve SMS's
                 <textarea name="field3" placeholder="Cell Number"></textarea>
                 </fieldset>
-                <input type="button" value="Add" onclick='window.location = "done.php";' /> <input type="button" value="Cansel" onclick="goBack()" />
+                <input type="button" value="Add" onclick='window.location = "done.php";' /> <input type="button" value="Cansel" onclick='window.location = "menu.php";'  />
             </form>
         </div>
     </body>

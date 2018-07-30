@@ -15,11 +15,14 @@ and open the template in the editor.
         <div class="form-style-5">
             <form>
                 <fieldset>
-                <legend><span class="number">#</span> Birthdays for June !</legend>
-                <lable> 2018/06/01 - Anjie</lable><br />
-                <lable> 2018/06/05 - Neels</lable><br />
-                <br /><br />
-                <input type="button" value="Home" onclick='window.location = "menu.php";' />
+                <legend><span class="number">#</span> Update !</legend>
+                <select>
+                    <option value="-">Jannie</option>
+                    <option value="-">Sannie</option>
+                    <option value="-">Ansie</option>
+                    <option value="-">Neels</option>
+                </select>
+                <input type="button" value="Home" onclick='window.location = "new.php";' />
                 </fieldset>
             </form>
         </div>
