@@ -12,7 +12,7 @@
     border: none;
 }
 .form-style-5 legend {
-    font-size: 1.4em;
+    font-size: 4rem;
     margin-bottom: 10px;
 }
 .form-style-5 label {
@@ -34,7 +34,7 @@
 .form-style-5 checkboxtext
 {
   /* Checkbox text */
-  font-size: 110%;
+  font-size: 2rem;
   display: inline;
 }
 
@@ -54,10 +54,10 @@
     background: rgba(255,255,255,.1);
     border: none;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 2rem;
     margin: 0;
     outline: 0;
-    padding: 7px;
+    padding: 10px;
     width: 100%;
     box-sizing: border-box; 
     -webkit-box-sizing: border-box;
@@ -83,7 +83,7 @@
 }
 .form-style-5 select{
     -webkit-appearance: menulist-button;
-    height:35px;
+    height:2ren;
 }
 .form-style-5 .number {
     background: #1abc9c;
@@ -91,7 +91,7 @@
     height: 30px;
     width: 30px;
     display: inline-block;
-    font-size: 0.8em;
+    font-size: 2rem;
     margin-right: 4px;
     line-height: 30px;
     text-align: center;
@@ -107,7 +107,7 @@
     color: #FFF;
     margin: 0 auto;
     background: #1abc9c;
-    font-size: 18px;
+    font-size: 2rem;
     text-align: center;
     font-style: normal;
     width: 100%;

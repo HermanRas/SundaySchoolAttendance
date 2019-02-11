@@ -24,6 +24,7 @@ and open the template in the editor.
                 <legend><span class="number">#</span> Admin's Menu</legend>
                 <input type="button" value="Absent Per Class " onclick='window.location = "absent.php";' />
                 <input type="button" value="Attendance Report" onclick='window.location = "report.php";'/>
+                <input type="button" value="Update Teacher Details" onclick='window.location = "teacher.php";' />
                 <input type="button" value="Update Student Details" onclick='window.location = "update.php";'/>
                 </fieldset>
             </form>
