@@ -1,3 +1,5 @@
-<?php
-$db = new SQLite3('SondagSkool.sqlite3');
+<?php 
+// Connection to sqlite using PDO and set error mode
+$dsn = 'sqlite:sondagskool.sqlite';
+$conn = new PDO($dsn);
 ?>

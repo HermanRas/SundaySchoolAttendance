@@ -1,22 +1,14 @@
---#SQLite regdb
+--#SQLite sondagskooldb
 /**
-.sqlite
-
-Command	Description
+--Command	Description
 .show	Displays current settings for various parameters
 .databases	Provides database names and files
 .quit	Quit sqlite3 program
 .tables	Show current tables
 .schema	Display schema of table
 .header	Display or hide the output table header
-.mode
-Select mode
-for
-the
-output
-table
+.mode Select mode for the output table
 .dump	Dump database in SQL text format
-
 
 --cleanup
 DELETE FROM tblename;
@@ -42,15 +34,16 @@ CREATE TABLE Teacher (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
 	name TEXT NOT NULL,
 	password TEXT NOT NULL,
-    class_id INTEGER NOT NULL
+    class_id INTEGER NOT NULL,
 	access_id INTEGER NOT NULL);
+
+INSERT INTO Teacher ('name','password','class_id','access_id') VALUES ('admin', 'admin', 1, 1);
 
 CREATE TABLE access ( 
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	name TEXT NOT NULL,
 	description TEXT NOT NULL);
 	/**
-    0)
     1) teacher - can do attendance
     2)
     3)
@@ -61,10 +54,27 @@ CREATE TABLE access (
     8)
     9) admin - can do all
     **/
-CREATE TABLE Class ( 
+INSERT INTO access ('name','description') VALUES ('teacher', 'can do attendance');
+INSERT INTO access ('name','description') VALUES (' ', 'N/A');
+INSERT INTO access ('name','description') VALUES (' ', 'N/A');
+INSERT INTO access ('name','description') VALUES (' ', 'N/A');
+INSERT INTO access ('name','description') VALUES ('student admin', 'can add & edit students');
+INSERT INTO access ('name','description') VALUES (' ', 'N/A');
+INSERT INTO access ('name','description') VALUES (' ', 'N/A');
+INSERT INTO access ('name','description') VALUES (' ', 'N/A');
+INSERT INTO access ('name','description') VALUES ('admin', 'can do everything');
+
+CREATE TABLE class ( 
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
 	name TEXT NOT NULL,
 	description TEXT NOT NULL);
+
+INSERT INTO class ('name','description') VALUES ('Kersies', '3-5y');
+INSERT INTO class ('name','description') VALUES ('Lampies', '6-8y');
+INSERT INTO class ('name','description') VALUES ('Spotlights', '9-12y');
+INSERT INTO class ('name','description') VALUES ('Tieners', '13-17');
+INSERT INTO class ('name','description') VALUES ('Metrix&Naskool', '18+');
+
 
 CREATE TABLE attendance ( 
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
