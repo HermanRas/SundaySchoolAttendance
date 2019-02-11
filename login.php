@@ -22,8 +22,8 @@ if(isset($_POST)){
         //set up session
         $_SESSION['user'] = $row['name'];
         $_SESSION['class_id'] = $row['class_id'];
-        $_SESSION['teacher_id'] = $row['id'];
-        $_SESSION['access_id'] = $row['access_id'];
+        $_SESSION['teacher_id'] = (int)$row['id'];
+        $_SESSION['access_id'] = (int)$row['access_id'];
 
         //logged in send to menu
         header("Location: menu.php");
