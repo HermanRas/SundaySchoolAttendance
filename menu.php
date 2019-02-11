@@ -17,15 +17,18 @@ and open the template in the editor.
                 <fieldset>
                 <legend><span class="number">#</span> Teacher's Menu</legend>
                 <input type="button" value="Do Register" onclick='window.location = "register.php";' />
-                <input type="button" value="Add Student" onclick='window.location = "new.php";'/>
                 <input type="button" value="View Birthdays" onclick='window.location = "bdays.php";'/>
+                </fieldset>
+                <fieldset>
+                <legend><span class="number">#</span> Student's Menu</legend>
+                <input type="button" value="Add Student" onclick='window.location = "new.php";'/>
+                <input type="button" value="Update Student Details" onclick='window.location = "update.php";'/>
                 </fieldset>
                 <fieldset>
                 <legend><span class="number">#</span> Admin's Menu</legend>
                 <input type="button" value="Absent Per Class " onclick='window.location = "absent.php";' />
                 <input type="button" value="Attendance Report" onclick='window.location = "report.php";'/>
                 <input type="button" value="Update Teacher Details" onclick='window.location = "teacher.php";' />
-                <input type="button" value="Update Student Details" onclick='window.location = "update.php";'/>
                 </fieldset>
             </form>
         </div>

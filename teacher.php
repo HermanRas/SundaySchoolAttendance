@@ -19,7 +19,14 @@ and open the template in the editor.
                 Name:
                 <input type="text" name="field1" placeholder="UserName *">
                 Password:
-                <input type="text" name="field2" placeholder="Password *">     
+                <input type="text" name="field2" placeholder="Password *">
+                Class:
+                <select>
+                    <option value="-">Kersies</option>
+                    <option value="-">Lampies</option>
+                    <option value="-">Spotlights</option>
+                    <option value="-">Tieners</option>
+                </select>
                 </fieldset>
                 <input type="button" value="Add" onclick='window.location = "done.php";' /> <input type="button" value="Cansel" onclick='window.location = "menu.php";'  />
             </form>

@@ -27,7 +27,7 @@ and open the template in the editor.
                 House Address:
                 <textarea name="field4" placeholder="House Address"></textarea>
                 <label for="Grade">Grade:</label>
-                <select id="job" name="field5">
+                <select id="Grade" name="field5">
                 <optgroup label="Primary School">
                   <option value="Gr0">4 year's</option>
                   <option value="Gr0">5 year's</option>
