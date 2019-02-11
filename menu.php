@@ -1,9 +1,4 @@
-    <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php require_once('session.php'); ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -30,6 +25,7 @@ and open the template in the editor.
                 <input type="button" value="Attendance Report" onclick='window.location = "report.php";'/>
                 <input type="button" value="Update Teacher Details" onclick='window.location = "teacher.php";' />
                 </fieldset>
+                <br> <input type="button" value="Logout" onclick='window.location = "logout.php";' />
             </form>
         </div>
     </body>

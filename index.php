@@ -1,3 +1,7 @@
+<?php
+require_once('session.php'); 
+include_once('login.php');
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -7,11 +11,11 @@
     <body>
         <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
         <div class="form-style-5">
-            <form action="menu.php" method="POST">
+            <form method="POST">
                 <fieldset>
                 <legend><span class="number">#</span> Login</legend>
-                <input type="text" value="" placeholder="Enter your user name" />
-                <input type="password" placeholder="Enter your password" />
+                <input type="text" name="user" placeholder="Enter your user name" />
+                <input type="password" name="password" placeholder="Enter your password" />
                 <input type="submit" value="Login" />
                 </fieldset>
             </form>
