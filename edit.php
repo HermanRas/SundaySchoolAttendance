@@ -21,11 +21,11 @@ require_once('session.php');
                 foreach ($result as $row) {
                     //set options
                     echo '<option value="'. $row['id'] . '">'. $row['id']. '-' . $row['name'] . '</option>' ;
-                    // -Herman</option>
+
                     }
                 ?>
                 </select>
-                <input type="submit" value="Update" />
+                <input type="submit" value="Update" /><input type="button" value="Cancel" onclick='window.location = "menu.php";'  />
                 </fieldset>
             </form>
         </div>

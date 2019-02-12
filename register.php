@@ -1,9 +1,6 @@
-    <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php 
+require_once('session.php');
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,23 +10,26 @@ and open the template in the editor.
     <body>
         <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
         <div class="form-style-5">
-            <form>
+            <form method="POST">
                 <fieldset>
                 <legend><span class="number">1</span> Date of Sunday:</legend>
-                <input type="date" value="" name="date"  />
+                <input type="date" value="<?php echo date('Y-m-d'); ?>" name="date"  />
                 </fieldset>
                 <fieldset>
                 <legend><span class="number">2</span> Attendance:</legend>
-                <input type="checkbox" value="12222222222222222" name="kid1"  /> - CJ<br /><br />
-                <input type="checkbox" value="23222222222222" name="kid1"  /> - Jako<br /><br />
-                <input type="checkbox" value="3422222222222222" name="kid1"  /> - Regard<br /><br />
-                <input type="checkbox" value="422222222225" name="kid1"  /> - Maarie<br /><br />
-                <input type="checkbox" value="222222222222222256" name="kid1"  /> - Anjie<br /><br />
-                <input type="checkbox" value="222222222222222256" name="kid1"  /> - Neels<br /><br />
-                <input type="checkbox" value="222222222222222256" name="kid1"  /> - Dawid<br /><br />
-                <input type="checkbox" value="222222222222222256" name="kid1"  /> - Gerhard<br /><br />
+                <?php
+                $classid = $_SESSION['class_id'];
+                include_once('db_open.php');
+                $sql = "SELECT id,name,surname FROM student WHERE class_id = $classid;";
+                $result = $conn->query($sql);
+                foreach ($result as $row) {
+                    //set options
+                    echo '<input type="checkbox" value="' . $row['id'] . '" name="student"><span class="checkboxtext"> '. $row['name'] . ' ' . $row['surname']."</span><br>";
+
+                }
+                ?>
                 </fieldset>
-                <input type="button" value="Finish" onclick='window.location = "done.php";'/> <input type="button" value="Cansel" onclick="goBack()" />
+                <input type="submit" value="Finish" /> <input type="button" value="Cancel" onclick='window.location = "menu.php";'  />
             </form>
         </div>
     </body>

@@ -37,7 +37,9 @@
                 <?php
                 }
                 ?>
+                <fieldset>
                 <br> <input type="button" value="Logout" onclick='window.location = "logout.php";' />
+                </fieldset>
             </form>
         </div>
     </body>
