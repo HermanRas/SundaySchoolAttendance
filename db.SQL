@@ -28,6 +28,7 @@ CREATE TABLE student (
 	dad TEXT,
 	dadnum TEXT,
 	churchsms TEXT,
+	active BIT,
     class_id INTEGER);
 
 CREATE TABLE Teacher ( 

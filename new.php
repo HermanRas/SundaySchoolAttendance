@@ -16,6 +16,7 @@ $momcell = '';
 $dad = '';
 $dadcell = '';
 $churchsms = '';
+$active = '';
 $classid = '';
 
 //check insert or update data
@@ -32,19 +33,20 @@ if (isset($_POST['id'])) {
   $dad = $_POST['dad'];
   $dadcell = $_POST['dadcell'];
   $churchsms = $_POST['churchsms'];
+  $active = $_POST['active'];
   $classid = $_POST['classid'];
 
   if ($_POST['id'] === '') {
         //insert new
     include_once('db_open.php');
-    $sql = " INSERT INTO student ('name','surname','birthday','age','houseaddress','mom','momnum','dad','dadnum','churchsms','class_id') 
-                          VALUES ('$name','$surname','$birthday','$age','$add','$mom','$momcell','$dad','$dadcell','$churchsms','$classid');";
+    $sql = " INSERT INTO student ('name','surname','birthday','age','houseaddress','mom','momnum','dad','dadnum','churchsms','active','class_id') 
+                          VALUES ('$name','$surname','$birthday','$age','$add','$mom','$momcell','$dad','$dadcell','$churchsms','$active','$classid');";
     $conn->query($sql);
     header("Location: menu.php");
   } else {
         //update excising
     include_once('db_open.php');
-    $sql = "UPDATE student SET name = '$name',surname = '$surname' ,birthday='$birthday',age='$age',houseaddress='$add',mom='$mom',momnum='$momcell',dad='$dad',dadnum='$dadcell',churchsms='$churchsms',class_id='$classid' WHERE id = '$id';";
+    $sql = "UPDATE student SET name = '$name',surname = '$surname' ,birthday='$birthday',age='$age',houseaddress='$add',mom='$mom',momnum='$momcell',dad='$dad',dadnum='$dadcell',churchsms='$churchsms',active='$active',class_id='$classid' WHERE id = '$id';";
     $conn->query($sql);
     header("Location: menu.php");
   }
@@ -67,6 +69,7 @@ if (isset($_GET['id'])) {
         $dad = $row['dad'];
         $dadcell = $row['dadnum'];
         $churchsms = $row['churchsms'];
+        $active  = $row['active'];
         $classid = $row['class_id'];
         }
 }
@@ -101,6 +104,11 @@ if (isset($_GET['id'])) {
                     <option value="3">3-Spotlights</option>
                     <option value="4">4-Tieners</option>
                     <option value="5">5-Metrix&Naskool</option>
+                </select>
+                Active: <?php echo $active; ?>
+                <select name="active">
+                    <option value="1">YES</option>
+                    <option value="0">NO</option>
                 </select>
                 </fieldset>
                 <fieldset>
