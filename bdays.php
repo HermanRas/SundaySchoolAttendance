@@ -1,9 +1,6 @@
-    <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php 
+require_once('session.php');
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -15,9 +12,17 @@ and open the template in the editor.
         <div class="form-style-5">
             <form>
                 <fieldset>
-                <legend><span class="number">#</span> Birthdays for June !</legend>
-                <lable> 2018/06/01 - Anjie</lable><br />
-                <lable> 2018/06/05 - Neels</lable><br />
+                <legend><span class="number">#</span> Birthdays for <?php echo date("F"); ?> !</legend>
+                    <?php
+                    $classid = $_SESSION['class_id'];
+                    include_once('db_open.php');
+                    $sql = "SELECT name,surname,birthday FROM student WHERE class_id = $classid and active != 0 and strftime('%m', birthday) = strftime('%m', DATETIME('now')) ORDER BY birthday;";
+                    $result = $conn->query($sql);
+                    foreach ($result as $row) {
+                        //set options
+                        echo '<span class="checkboxtext">' . $row['birthday'] . '</span>'. $row['name'] .' ' . $row['surname'] . '<br>';
+                        }   
+                    ?>  
                 <br /><br />
                 <input type="button" value="Home" onclick='window.location = "menu.php";' />
                 </fieldset>

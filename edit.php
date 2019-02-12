@@ -25,7 +25,7 @@ require_once('session.php');
                     }
                 ?>
                 </select>
-                <input type="submit" value="Update" /><input type="button" value="Cancel" onclick='window.location = "menu.php";'  />
+                <input type="submit" value="Add / Update" /><input type="button" value="Cancel" onclick='window.location = "menu.php";'  />
                 </fieldset>
             </form>
         </div>

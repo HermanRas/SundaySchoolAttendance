@@ -1,8 +1,13 @@
     <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+select
+student.name as Name,
+student.surname as Surname,
+classdate,
+attended 
+from attendance
+inner join student on student.id = attendance.student_id
+order by Name,classdate
 -->
 <html>
     <head>

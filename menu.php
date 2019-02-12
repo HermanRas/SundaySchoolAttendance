@@ -11,9 +11,9 @@
             <form>
                 <fieldset>
                 <legend><span class="number">#</span> Teacher's Menu</legend>
-                <input type="button" value="Do Register" onclick='window.location = "register.php";' />
+                <input type="button" value="Do Attendance" onclick='window.location = "register.php";' />
                 <input type="button" value="View Birthdays" onclick='window.location = "bdays.php";'/>
-                <input type="button" value="Absent" onclick='window.location = "absent.php";' />
+                <input type="button" value="View Absent" onclick='window.location = "absent.php";' />
                 <input type="button" value="Attendance Report" onclick='window.location = "report.php";'/>
                 </fieldset>
                 <?php 
@@ -30,7 +30,7 @@
                 ?>
                 <fieldset>
                 <legend><span class="number">#</span> Admin's Menu</legend>
-                <input type="button" value="Absent Per Class " onclick='window.location = "absent.php";' />
+                <input type="button" value="Attended Per Class " onclick='window.location = "adminreport.php";' />
                 <input type="button" value="Add Teacher" onclick='window.location = "teacher.php";' />
                 <input type="button" value="Update Teacher" onclick='window.location = "edit.php";' />
                 </fieldset>

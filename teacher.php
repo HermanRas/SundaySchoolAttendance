@@ -70,7 +70,8 @@ if (isset($_GET['id'])){
                 Password:
                 <input type="text" name="password" value="<?php echo $pass; ?>" placeholder="Password *">
                 Class: <?php echo $class; ?>
-                <select name="class">
+                <select name="class" required>
+                    <option value="">Select Class</option>
                     <option value="1">1-Kersies</option>
                     <option value="2">2-Lampies</option>
                     <option value="3">3-Spotlights</option>
@@ -78,7 +79,8 @@ if (isset($_GET['id'])){
                     <option value="5">5-Metrix&Naskool</option>
                 </select>
                 Access: <?php echo $acc; ?>
-                <select name="acc">
+                <select name="acc" required>
+                    <option value="">Select Access</option>
                     <option value="1">1-Teacher</option>
                     <option value="5">5-Student Admin</option>
                     <option value="9">9-Full Admin</option>

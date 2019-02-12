@@ -98,7 +98,8 @@ if (isset($_GET['id'])) {
                 Home Address:
                 <textarea name="add" placeholder="Home Address"><?php echo $add; ?> </textarea>  
                 Class: <?php echo $classid; ?>
-                <select name="classid">
+                <select name="classid" required>
+                    <option value="">Select Class</option>
                     <option value="1">1-Kersies</option>
                     <option value="2">2-Lampies</option>
                     <option value="3">3-Spotlights</option>
@@ -127,7 +128,7 @@ if (isset($_GET['id'])) {
                 Number to recieve SMS's
                 <input type="number" name="churchsms" value="<?php echo $churchsms; ?>"  placeholder="Cell Number" />
                 </fieldset>
-                <input type="submit" value="Add"/> <input type="button" value="Cansel" onclick='window.location = "menu.php";'  />
+                <input type="submit" value="Add / Update"/> <input type="button" value="Cansel" onclick='window.location = "menu.php";'  />
             </form>
         </div>
     </body>
