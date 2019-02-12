@@ -14,8 +14,8 @@ include_once('login.php');
             <form method="POST">
                 <fieldset>
                 <legend><span class="number">#</span> Login</legend>
-                <input type="text" name="user" placeholder="Enter your user name" />
-                <input type="password" name="password" placeholder="Enter your password" />
+                <input type="text" name="user" placeholder="Enter user name" />
+                <input type="password" name="password" placeholder="Enter password" />
                 <input type="submit" value="Login" />
                 </fieldset>
             </form>

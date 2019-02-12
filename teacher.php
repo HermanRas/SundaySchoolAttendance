@@ -32,7 +32,6 @@ if(isset($_POST['id'])){
         //update excising
         include_once('db_open.php');
         $sql = "UPDATE Teacher SET name = '$name', password='$pass',class_id ='$class',access_id = '$acc' WHERE id = $id;";
-        echo $sql;
         $conn->query($sql);
         header("Location: menu.php");
     }

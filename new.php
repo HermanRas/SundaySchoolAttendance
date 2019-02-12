@@ -1,10 +1,77 @@
-    <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<?php
+require_once('session.php'); 
+//check access level
+if ($_SESSION['access_id'] < 5) {
+  header("Location: index.php");
+}
+//load data varables
+$id = '';
+$name = '';
+$surname = '';
+$birthday = '';
+$age = '';
+$add = '';
+$mom = '';
+$momcell = '';
+$dad = '';
+$dadcell = '';
+$churchsms = '';
+$classid = '';
+
+//check insert or update data
+if (isset($_POST['id'])) {
+
+  $id = $_POST['id'];
+  $name = $_POST['name'];
+  $surname = $_POST['surname'];
+  $birthday = $_POST['birthday'];
+  $age = $_POST['age'];
+  $add = $_POST['add'];
+  $mom = $_POST['mom'];
+  $momcell = $_POST['momcell'];
+  $dad = $_POST['dad'];
+  $dadcell = $_POST['dadcell'];
+  $churchsms = $_POST['churchsms'];
+  $classid = $_POST['classid'];
+
+  if ($_POST['id'] === '') {
+        //insert new
+    include_once('db_open.php');
+    $sql = " INSERT INTO student ('name','surname','birthday','age','houseaddress','mom','momnum','dad','dadnum','churchsms','class_id') 
+                          VALUES ('$name','$surname','$birthday','$age','$add','$mom','$momcell','$dad','$dadcell','$churchsms','$classid');";
+    $conn->query($sql);
+    header("Location: menu.php");
+  } else {
+        //update excising
+    include_once('db_open.php');
+    $sql = "UPDATE student SET name = '$name',surname = '$surname' ,birthday='$birthday',age='$age',houseaddress='$add',mom='$mom',momnum='$momcell',dad='$dad',dadnum='$dadcell',churchsms='$churchsms',class_id='$classid' WHERE id = '$id';";
+    $conn->query($sql);
+    header("Location: menu.php");
+  }
+}
+
+if (isset($_GET['id'])) {
+  include_once('db_open.php');
+  $id = $_GET['id'];
+  $sql = "SELECT * FROM student where id = '$id';";
+  $result = $conn->query($sql);
+  foreach ($result as $row) {
+        //set up session
+        $name = $row['name'];
+        $surname = $row['surname'];
+        $birthday = $row['birthday'];
+        $age = $row['age'];
+        $add = $row['houseaddress'];
+        $mom = $row['mom'];
+        $momcell = $row['momnum'];
+        $dad = $row['dad'];
+        $dadcell = $row['dadnum'];
+        $churchsms = $row['churchsms'];
+        $classid = $row['class_id'];
+        }
+}
+
+?>
     <head>
         <meta charset="UTF-8">
         <title>Luchnos</title>
@@ -13,73 +80,46 @@ and open the template in the editor.
     <body>
         <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
         <div class="form-style-5">
-            <form>
+            <form method='POST'>
                 <fieldset>
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <legend><span class="number">1</span> Candidate Info</legend>
                 Name:
-                <input type="text" name="field1" placeholder="His/Her Name *">
+                <input type="text" name="name" value="<?php echo $name; ?>" placeholder="His/Her Name *">
                 Surname:
-                <input type="text" name="field2" placeholder="His/Her Surname *">
-                Birth day:
-                <input type="Date" name="field3" placeholder="Birthdate *">
+                <input type="text" name="surname" value="<?php echo $surname; ?>" placeholder="His/Her Surname *">
+                Birthday:
+                <input type="Date" name="birthday" value="<?php echo $birthday; ?>" placeholder="Birthdate *">
                 Age:
-                <input type="number" name="field4" placeholder="Age *">
-                House Address:
-                <textarea name="field4" placeholder="House Address"></textarea>
-                <label for="Grade">Grade:</label>
-                <select id="Grade" name="field5">
-                <optgroup label="Primary School">
-                  <option value="Gr0">4 year's</option>
-                  <option value="Gr0">5 year's</option>
-                  <option value="Gr0">6 year's</option>
-                </optgroup>
-                <optgroup label="Primary School">
-                  <option value="Gr0">Grade 0</option>
-                  <option value="Gr1">Grade 1</option>
-                  <option value="Gr2">Grade 2</option>
-                  <option value="Gr3">Grade 3</option>
-                </optgroup>
-                <optgroup label="Middel School">
-                  <option value="Gr0">Grade 4</option>
-                  <option value="Gr1">Grade 5</option>
-                  <option value="Gr2">Grade 6</option>
-                  <option value="Gr3">Grade 7</option>
-                </optgroup>
-                <optgroup label="High School">
-                  <option value="Gr0">Grade 8</option>
-                  <option value="Gr1">Grade 9</option>
-                  <option value="Gr2">Grade 10</option>
-                  <option value="Gr3">Grade 11</option>
-                  <option value="Gr3">Grade 12</option>
-                </optgroup>
-                <optgroup label="After School">
-                  <option value="Gr0">19 year's</option>
-                  <option value="Gr0">20 year's</option>
-                  <option value="Gr0">21 year's</option>
-                  <option value="Gr0">22 year's</option>
-                  <option value="Gr0">23 year's</option>
-                  <option value="Gr0">24 year's</option>
-                  <option value="Gr0">25 year's</option>
-                </optgroup>
-                </select>      
+                <input type="number" name="age" value="<?php echo $age; ?>" placeholder="Age *">
+                Home Address:
+                <textarea name="add" placeholder="Home Address"><?php echo $add; ?> </textarea>  
+                Class: <?php echo $classid; ?>
+                <select name="classid">
+                    <option value="1">1-Kersies</option>
+                    <option value="2">2-Lampies</option>
+                    <option value="3">3-Spotlights</option>
+                    <option value="4">4-Tieners</option>
+                    <option value="5">5-Metrix&Naskool</option>
+                </select>
                 </fieldset>
                 <fieldset>
                 <legend><span class="number">2</span> Additional Info</legend>
                 Mother Name and Surname:
-                <input type="text" name="field3" placeholder="Mothers Name" />
+                <input type="text" name="mom" value="<?php echo $mom; ?>" placeholder="Mothers Name" />
                 Mothers Number:
-                <input type="number" name="field3" placeholder="Mothers Number" />
+                <input type="number" name="momcell"  value="<?php echo $momcell; ?>" placeholder="Mothers Number" />
                 Fathers Name and Surname:
-                <input type="text" name="field3" placeholder="Fathers Name" />
+                <input type="text"  value="<?php echo $dad; ?>" name="dad" placeholder="Fathers Name" />
                 Fathers Number:
-                <input type="number" name="field3" placeholder="Fathers Number"/>
+                <input type="number"  value="<?php echo $dadcell; ?>" name="dadcell" placeholder="Fathers Number"/>
                 </fieldset>
                 <fieldset>
                 <legend><span class="number">3</span> Church SMS Notification:</legend>
                 Number to recieve SMS's
-                <textarea name="field3" placeholder="Cell Number"></textarea>
+                <input type="number" name="churchsms" value="<?php echo $churchsms; ?>"  placeholder="Cell Number" />
                 </fieldset>
-                <input type="button" value="Add" onclick='window.location = "done.php";' /> <input type="button" value="Cansel" onclick='window.location = "menu.php";'  />
+                <input type="submit" value="Add"/> <input type="button" value="Cansel" onclick='window.location = "menu.php";'  />
             </form>
         </div>
     </body>

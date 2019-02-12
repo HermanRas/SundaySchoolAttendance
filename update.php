@@ -1,9 +1,6 @@
-    <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php 
+require_once('session.php');
+?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,18 +10,24 @@ and open the template in the editor.
     <body>
         <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
         <div class="form-style-5">
-            <form>
+            <form action="new.php">
                 <fieldset>
                 <legend><span class="number">#</span> Update !</legend>
-                <select>
-                    <option value="-">Jannie</option>
-                    <option value="-">Sannie</option>
-                    <option value="-">Ansie</option>
-                    <option value="-">Neels</option>
+                <select name="id">
+                <?php
+                include_once('db_open.php');
+                $sql = "SELECT id,name,surname FROM student ORDER BY name;";
+                $result = $conn->query($sql);
+                foreach ($result as $row) {
+                    //set options
+                    echo '<option value="' . $row['id'] . '">' . $row['name'] . ' ' . $row['surname'] . '</option>';
+                }
+                ?>
                 </select>
-                <input type="button" value="Home" onclick='window.location = "new.php";' />
+                <input type="submit" value="Update" />
                 </fieldset>
             </form>
         </div>
     </body>
 </html>
+
