@@ -6,7 +6,9 @@ include_once('login.php');
     <head>
         <meta charset="UTF-8">
         <title>Luchnos</title>
-        <link rel="stylesheet" href="main.css">   
+        <link rel="stylesheet" href="main.css">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     </head>
     <body>
         <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
