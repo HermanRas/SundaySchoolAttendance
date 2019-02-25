@@ -63,7 +63,7 @@ if (isset($_GET['id'])){
         <div class="form-style-5">
             <form method='POST'>
                 <fieldset>
-                <legend><span class="number">1</span> Candidate Info</legend>
+                <legend><span class="number">1</span> Teacher Info</legend>
                 <input type="hidden" name="id" value="<?php echo $id; ?>" >
                 Name:
                 <input type="text" name="name" value="<?php echo $name; ?>" placeholder="UserName *">
@@ -73,7 +73,7 @@ if (isset($_GET['id'])){
                 <select name="class" required>
                     <option value="">Select Class</option>
                     <option value="1">1-Kersies</option>
-                    <option value="2">2-Lampies</option>
+                    <option value="2">2-Olie-Lampies</option>
                     <option value="3">3-Spotlights</option>
                     <option value="4">4-Tieners</option>
                     <option value="5">5-Metrix&Naskool</option>
