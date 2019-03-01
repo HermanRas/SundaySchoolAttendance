@@ -2,32 +2,36 @@
 require_once('session.php');
 ?>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Luchnos</title>
-        <link rel="stylesheet" href="main.css">   
-    </head>
-    <body>
-        <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
-        <div class="form-style-5">
-            <form action="new.php">
-                <fieldset>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Luchnos</title>
+    <meta name="theme-color" content="#1abc9c">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="Pictures/Logo.png" sizes="192x192">
+</head>
+
+<body>
+    <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
+    <div class="form-style-5">
+        <form action="new.php">
+            <fieldset>
                 <legend><span class="number">#</span> Update !</legend>
                 <select name="id">
-                <?php
-                include_once('db_open.php');
-                $sql = "SELECT id,name,surname FROM student ORDER BY name;";
-                $result = $conn->query($sql);
-                foreach ($result as $row) {
-                    //set options
-                    echo '<option value="' . $row['id'] . '">' . $row['name'] . ' ' . $row['surname'] . '</option>';
-                }
-                ?>
+                    <?php
+                    include_once('db_open.php');
+                    $sql = "SELECT id,name,surname FROM student ORDER BY name;";
+                    $result = $conn->query($sql);
+                    foreach ($result as $row) {
+                        //set options
+                        echo '<option value="' . $row['id'] . '">' . $row['name'] . ' ' . $row['surname'] . '</option>';
+                    }
+                    ?>
                 </select>
-                <input type="submit" value="Update" /><input type="button" value="Cancel" onclick='window.location = "menu.php";'  />
-                </fieldset>
-            </form>
-        </div>
-    </body>
-</html>
+                <input type="submit" value="Update" /><input type="button" value="Cancel" onclick='window.location = "menu.php";' />
+            </fieldset>
+        </form>
+    </div>
+</body>
 
+</html> 

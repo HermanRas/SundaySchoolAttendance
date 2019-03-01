@@ -36,7 +36,9 @@ if (isset($_POST['classdate'])) {
 <head>
     <meta charset="UTF-8">
     <title>Luchnos</title>
+    <meta name="theme-color" content="#1abc9c">
     <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="Pictures/Logo.png" sizes="192x192">
 </head>
 
 <body>

@@ -1,23 +1,27 @@
 <?php
-require_once('session.php'); 
+require_once('session.php');
 //check access level
 if ($_SESSION['access_id'] < 5) {
     header("Location: index.php");
 }
 ?>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Luchnos</title>
-        <link rel="stylesheet" href="main.css">   
-    </head>
-    <body>
-        <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
-        <div class="form-style-5">
-            <form>
-                <fieldset>
-                <legend><span class="number">#</span>Attendance</legend> 
-                <input type="date" name="sdate"  onchange="this.form.submit()" required />
+
+<head>
+    <meta charset="UTF-8">
+    <title>Luchnos</title>
+    <meta name="theme-color" content="#1abc9c">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="Pictures/Logo.png" sizes="192x192">
+</head>
+
+<body>
+    <div style="text-align: center"><img alt="Logo" src="Pictures/Logo2.png" width="250px" /></div>
+    <div class="form-style-5">
+        <form>
+            <fieldset>
+                <legend><span class="number">#</span>Attendance</legend>
+                <input type="date" name="sdate" onchange="this.form.submit()" required />
                 <table border="1" cellpadding="1">
                     <thead>
                         <tr>
@@ -35,7 +39,7 @@ if ($_SESSION['access_id'] < 5) {
                             $date = new DateTime($_GET['date']);
                             $sdate = $date->format("Y-m-d");
                         }
-                        
+
                         $classID = $_SESSION['class_id'];
 
                         include_once('db_open.php');
@@ -47,11 +51,11 @@ if ($_SESSION['access_id'] < 5) {
                             echo "<td>" . $row['Name'] . "</td>";
                             echo "<td>" . $row['Surname'] . "</td>";
                             echo "<td>" . $row['classdate'] . "</td>";
-                                if ($row['attended'] === "1"){
+                            if ($row['attended'] === "1") {
                                 $attend = "YES";
-                                }else{
-                                    $attend = "NO";
-                                }
+                            } else {
+                                $attend = "NO";
+                            }
                             echo "<td>" . $attend .  "</td>";
                             echo "</tr>";
                         }
@@ -60,8 +64,9 @@ if ($_SESSION['access_id'] < 5) {
                 </table>
                 <br /><br />
                 <input type="button" value="Home" onclick='window.location = "menu.php";' />
-                </fieldset>
-            </form>
-        </div>
-    </body>
-</html>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html> 
