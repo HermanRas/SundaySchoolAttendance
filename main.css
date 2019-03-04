@@ -23,20 +23,20 @@
 .form-style-5 input[type=checkbox]
 {
   /* Double-sized Checkboxes */
-  -ms-transform: scale(3); /* IE */
-  -moz-transform: scale(3); /* FF */
-  -webkit-transform: scale(3); /* Safari and Chrome */
-  -o-transform: scale(3); /* Opera */
-  padding: 15px;
+  -ms-transform: scale(5); /* IE */
+  -moz-transform: scale(5); /* FF */
+  -webkit-transform: scale(5); /* Safari and Chrome */
+  -o-transform: scale(5); /* Opera */
+  padding: 20px;
 }
 
 /* Might want to wrap a span around your checkbox text */
 .form-style-5 .checkboxtext
 {
   /* Checkbox text */
-  font-size: 2rem;
+  font-size: 3rem;
   display: inline;
-  padding: 15px;
+  padding: 20px;
 }
 
 .form-style-5 input[type="text"],

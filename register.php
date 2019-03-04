@@ -59,9 +59,11 @@ if (isset($_POST['classdate'])) {
                 foreach ($result as $row) {
                     //set options
                     echo '<input type="checkbox" value="' . $row['id'] . '" name="attended[' . $row['id'] . ']"><span class="checkboxtext"> ' . $row['name'] . ' ' . $row['surname'] . "</span><br>";
+                    echo '<br>';
                 }
                 ?>
             </fieldset>
+            <br><br><br><br><br><br>
             <input type="submit" value="Finish" /> <input type="button" value="Cancel" onclick='window.location = "menu.php";' />
         </form>
     </div>
