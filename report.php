@@ -35,9 +35,8 @@ if ($_SESSION['access_id'] < 5) {
                         <?php
                         //set filter
                         $sdate = '';
-                        if (isset($_GET['date'])) {
-                            $date = new DateTime($_GET['date']);
-                            $sdate = $date->format("Y-m-d");
+                        if (isset($_GET['sdate'])) {
+                            $sdate = $_GET['sdate'];
                         }
 
                         $classID = $_SESSION['class_id'];
