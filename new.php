@@ -134,7 +134,7 @@ if (isset($_GET['id'])) {
                 Number to recieve SMS's
                 <input type="number" name="churchsms" value="<?php echo $churchsms; ?>" placeholder="Cell Number" />
             </fieldset>
-            <input type="submit" value="Add / Update" /> <input type="button" value="Cansel" onclick='window.location = "menu.php";' />
+            <input type="submit" value="Add / Update" /> <input type="button" value="Cancel" onclick='window.location = "menu.php";' />
         </form>
     </div>
 </body>

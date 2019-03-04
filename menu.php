@@ -16,6 +16,8 @@
             <fieldset>
                 <legend><span class="number">#</span> Teacher's Menu</legend>
                 <input type="button" value="Do Attendance" onclick='window.location = "register.php";' />
+                <input type="button" value="Edit Attendance" onclick='window.location = "register_ed.php";' />
+                <br><br><br><br>
                 <input type="button" value="View Birthdays" onclick='window.location = "bdays.php";' />
                 <input type="button" value="View Absent" onclick='window.location = "absent.php";' />
                 <input type="button" value="Attendance Report" onclick='window.location = "report.php";' />
@@ -44,7 +46,7 @@
         }
         ?>
             <fieldset>
-                <br> <input type="button" value="Logout" onclick='window.location = "logout.php";' />
+                <br><br><br> <input type="button" value="Logout" onclick='window.location = "logout.php";' />
             </fieldset>
         </form>
     </div>
