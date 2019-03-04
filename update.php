@@ -1,5 +1,8 @@
 <?php 
 require_once('session.php');
+if ($_SESSION['access_id'] < 5) {
+    header("Location: index.php");
+}
 ?>
 <html>
 

@@ -1,9 +1,5 @@
 <?php
 require_once('session.php');
-//check access level
-if ($_SESSION['access_id'] < 5) {
-    header("Location: index.php");
-}
 ?>
 <html>
 

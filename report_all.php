@@ -21,45 +21,52 @@ if ($_SESSION['access_id'] < 9) {
         <form>
             <fieldset>
                 <legend><span class="number">#</span>Attendance</legend>
-                <select name="class_id" onchange="this.form.submit()" required>
+                <select name="class" required>
                     <option value="">Select Class</option>
-                    <option value="1">Kersies</option>
-                    <option value="2">Lampies</option>
-                    <option value="3">Spotlights</option>
-                    <option value="4">Tieners</option>
-                    <option value="5">Metrix+</option>
+                    <option value="1">1-Kersies</option>
+                    <option value="2">2-Olie-Lampies</option>
+                    <option value="3">3-Spotlights</option>
+                    <option value="4">4-Tieners</option>
+                    <option value="5">5-Metrix&Naskool</option>
                 </select>
+                <input type="date" name="sdate" onchange="this.form.submit()" required />
                 <table border="1" cellpadding="1">
                     <thead>
                         <tr>
-                            <th>Class_Name</th>
                             <th>Name</th>
                             <th>Surname</th>
+                            <th>Class Date</th>
                             <th>Attended</th>
-                            <th>Total</th>
-                            <th>Percent</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         //set filter
-                        $class_id = '';
-                        if (isset($_GET["class_id"])) {
-                            $class_id = $_GET["class_id"];
+                        $sdate = '';
+                        if (isset($_GET['sdate'])) {
+                            $sdate = $_GET['sdate'];
+                        }
+
+                        $classID = '';
+                        if (isset($_GET['class'])) {
+                            $classID = $_GET['class'];
                         }
 
                         include_once('db_open.php');
-                        $sql = "select class.name as Class_Name,student.name as Name, student.surname as Surname, sum(attended) as Attended,count(classdate) as Total,ROUND(sum(attended) * 100.0 / count(classdate), 1) AS Percent from attendance inner join student on student.id = attendance.student_id inner join class on class.id = student.class_id WHERE Class_id Like '%$class_id%' Group By student_id Order By Class_Name,student.Name DESC;";
+                        $sql = "select student.name as Name, student.surname as Surname, classdate, attended from attendance inner join student on student.id = attendance.student_id where student.class_id LIKE '%$classID%' and classdate LIKE '%$sdate%' order by Name,classdate;";
                         $result = $conn->query($sql);
                         foreach ($result as $row) {
                             //set options
                             echo "<tr>";
-                            echo "<td>" . $row['Class_Name'] . "</td>";
                             echo "<td>" . $row['Name'] . "</td>";
                             echo "<td>" . $row['Surname'] . "</td>";
-                            echo "<td>" . $row['Attended'] . "</td>";
-                            echo "<td>" . $row['Total'] . "</td>";
-                            echo "<td>" . $row['Percent'] . "% </td>";
+                            echo "<td>" . $row['classdate'] . "</td>";
+                            if ($row['attended'] === "1") {
+                                $attend = "YES";
+                            } else {
+                                $attend = "NO";
+                            }
+                            echo "<td>" . $attend .  "</td>";
                             echo "</tr>";
                         }
                         ?>
