@@ -23,7 +23,8 @@ if ($_SESSION['access_id'] < 5) {
                 <select name="id">
                     <?php
                     include_once('db_open.php');
-                    $sql = "SELECT id,name,surname FROM student ORDER BY name;";
+                    $class =  $_SESSION['class_id'];
+                    $sql = "SELECT id,name,surname FROM student WHERE class_id = $class ORDER BY name;";
                     $result = $conn->query($sql);
                     foreach ($result as $row) {
                         //set options
@@ -37,4 +38,4 @@ if ($_SESSION['access_id'] < 5) {
     </div>
 </body>
 
-</html> 
+</html>

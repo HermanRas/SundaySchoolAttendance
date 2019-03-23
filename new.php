@@ -10,12 +10,14 @@ $name = '';
 $surname = '';
 $birthday = '';
 $age = '';
+$school = '';
 $add = '';
 $mom = '';
 $momcell = '';
 $dad = '';
 $dadcell = '';
 $churchsms = '';
+$email = '';
 $active = '';
 $classid = '';
 
@@ -27,26 +29,28 @@ if (isset($_POST['id'])) {
     $surname = $_POST['surname'];
     $birthday = $_POST['birthday'];
     $age = $_POST['age'];
+    $school = $_POST['school'];
     $add = $_POST['add'];
     $mom = $_POST['mom'];
     $momcell = $_POST['momcell'];
     $dad = $_POST['dad'];
     $dadcell = $_POST['dadcell'];
     $churchsms = $_POST['churchsms'];
+    $email = $_POST['email'];
     $active = $_POST['active'];
     $classid = $_POST['classid'];
 
     if ($_POST['id'] === '') {
         //insert new
         include_once('db_open.php');
-        $sql = " INSERT INTO student ('name','surname','birthday','age','houseaddress','mom','momnum','dad','dadnum','churchsms','active','class_id') 
-                          VALUES ('$name','$surname','$birthday','$age','$add','$mom','$momcell','$dad','$dadcell','$churchsms','$active','$classid');";
+        $sql = " INSERT INTO student ('name','surname','birthday','age','school','houseaddress','mom','momnum','dad','dadnum','churchsms','email','active','class_id') 
+                          VALUES ('$name','$surname','$birthday','$age','$school','$add','$mom','$momcell','$dad','$dadcell','$churchsms','$email','$active','$classid');";
         $conn->query($sql);
         header("Location: menu.php");
     } else {
         //update excising
         include_once('db_open.php');
-        $sql = "UPDATE student SET name = '$name',surname = '$surname' ,birthday='$birthday',age='$age',houseaddress='$add',mom='$mom',momnum='$momcell',dad='$dad',dadnum='$dadcell',churchsms='$churchsms',active='$active',class_id='$classid' WHERE id = '$id';";
+        $sql = "UPDATE student SET name = '$name',surname = '$surname' ,birthday='$birthday',age='$age',school='$school',houseaddress='$add',mom='$mom',momnum='$momcell',dad='$dad',dadnum='$dadcell',churchsms='$churchsms',email='$email',active='$active',class_id='$classid' WHERE id = '$id';";
         $conn->query($sql);
         header("Location: menu.php");
     }
@@ -63,12 +67,14 @@ if (isset($_GET['id'])) {
         $surname = $row['surname'];
         $birthday = $row['birthday'];
         $age = $row['age'];
+        $school = $row['school'];
         $add = $row['houseaddress'];
         $mom = $row['mom'];
         $momcell = $row['momnum'];
         $dad = $row['dad'];
         $dadcell = $row['dadnum'];
         $churchsms = $row['churchsms'];
+        $email = $row['email'];
         $active  = $row['active'];
         $classid = $row['class_id'];
     }
@@ -99,6 +105,8 @@ if (isset($_GET['id'])) {
                 <input type="Date" name="birthday" value="<?php echo $birthday; ?>" placeholder="Birthdate *">
                 Age:
                 <input type="number" name="age" value="<?php echo $age; ?>" placeholder="Age *">
+                school:
+                <input type="text" name="school" value="<?php echo $school; ?>" placeholder="school name *">
                 Home Address:
                 <textarea name="add" placeholder="Home Address"><?php echo $add; ?> </textarea>
                 Class:
@@ -133,6 +141,8 @@ if (isset($_GET['id'])) {
                 <legend><span class="number">3</span> Church SMS Notification:</legend>
                 Number to recieve SMS's
                 <input type="number" name="churchsms" value="<?php echo $churchsms; ?>" placeholder="Cell Number" />
+                Email for news Letter
+                <input type="email" name="email" value="<?php echo $email; ?>" placeholder="email" />
             </fieldset>
             <input type="submit" value="Add / Update" /> <input type="button" value="Cancel" onclick='window.location = "menu.php";' />
         </form>

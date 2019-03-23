@@ -39,6 +39,7 @@
                 <legend><span class="number">#</span> Admin's Menu</legend>
                 <input type="button" value="Attended Per Class " onclick='window.location = "adminreport.php";' />
                 <input type="button" value="Attendance Report All" onclick='window.location = "report_all.php";' />
+                <input type="button" value="Student Info (PC Only)" onclick='window.location = "Student_Info.php";' />
                 <br><br><br><br>
                 <input type="button" value="Add Teacher" onclick='window.location = "teacher.php";' />
                 <input type="button" value="Update Teacher" onclick='window.location = "edit.php";' />

@@ -22,12 +22,14 @@ CREATE TABLE student (
 	surname TEXT NOT NULL,
 	birthday date,
 	age INTEGER,
+	school TEXT,
 	houseaddress TEXT,
 	mom TEXT,
 	momnum TEXT,
 	dad TEXT,
 	dadnum TEXT,
 	churchsms TEXT,
+	email TEXT,
 	active BIT,
     class_id INTEGER);
 

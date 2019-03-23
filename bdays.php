@@ -21,11 +21,11 @@ require_once('session.php');
                 <?php
                 $classid = $_SESSION['class_id'];
                 include_once('db_open.php');
-                $sql = "SELECT name,surname,birthday FROM student WHERE class_id = $classid and active != 0 and strftime('%m', birthday) = strftime('%m', DATETIME('now')) ORDER BY birthday;";
+                $sql = "SELECT name,surname,birthday,strftime('%d',birthday) as day, strftime('%W',birthday) as Week FROM student WHERE active != 0 and strftime('%W', birthday) = strftime('%W', DATETIME('now')) or strftime('%W', birthday) = strftime('%W', DATE('now','-7 day')) or strftime('%W', birthday) = strftime('%W', DATE('now','+7 day')) ORDER BY day;";
                 $result = $conn->query($sql);
                 foreach ($result as $row) {
                     //set options
-                    echo '<span class="checkboxtext">' . $row['birthday'] . '</span>' . $row['name'] . ' ' . $row['surname'] . '<br>';
+                    echo '<h1>Week:' . $row['Week'] . ' | ' . $row['birthday'] . ' - ' . $row['name'] . ' ' . $row['surname'] . '</h1>';
                 }
                 ?>
                 <br /><br />
