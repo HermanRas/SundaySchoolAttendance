@@ -67,6 +67,7 @@ if (isset($_POST['classdate'])) {
                 }
                 ?>
             </fieldset>
+            <input type="button" value="Add Additional Student" onclick="window.location = 'register_ad.php?date=<?php echo $classdate;?>';" />
             <input type="submit" value="Finish" /> <input type="button" value="Cancel" onclick='window.location = "menu.php";' />
         </form>
     </div>
