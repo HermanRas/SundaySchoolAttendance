@@ -21,7 +21,13 @@ require_once('session.php');
                 <?php
                 $classid = $_SESSION['class_id'];
                 include_once('db_open.php');
-                $sql = "SELECT name,surname,birthday,strftime('%d',birthday) as day, strftime('%W',birthday) as Week FROM student WHERE active != 0 and strftime('%W', birthday) = strftime('%W', DATETIME('now')) or strftime('%W', birthday) = strftime('%W', DATE('now','-7 day')) or strftime('%W', birthday) = strftime('%W', DATE('now','+7 day')) ORDER BY day;";
+                $sql = "SELECT name,surname,birthday,strftime('%d',birthday) as day, strftime('%W', strftime('%Y','now') || substr(birthday,5,6)) as Week
+                        FROM student 
+                        WHERE active != 0 and 
+                        strftime('%W', strftime('%Y','now') || substr(birthday,5,6)) = strftime('%W', DATETIME('now')) or 
+                        strftime('%W', strftime('%Y','now') || substr(birthday,5,6)) = strftime('%W', DATE('now','-7 day')) or 
+                        strftime('%W', strftime('%Y','now') || substr(birthday,5,6)) = strftime('%W', DATE('now','+7 day')) 
+                        ORDER BY day;";
                 $result = $conn->query($sql);
                 foreach ($result as $row) {
                     //set options
@@ -35,4 +41,4 @@ require_once('session.php');
     </div>
 </body>
 
-</html> 
+</html>
