@@ -32,7 +32,11 @@ $sql = "select student.id,active,student.name,surname,birthday,age,school,housea
 
 //Attendance
 echo "<h1>Students<h1>";
-$sql = "select student.name as Name, student.surname as Surname, classdate, attended from attendance inner join student on student.id = attendance.student_id order by Name,classdate;";
+$sql = "select class.name as class_name, student.name || ' ' || student.surname as Student, classdate, attended 
+from attendance 
+inner join student on student.id = attendance.student_id 
+inner join class on class.id = class_id
+order by class.name,student.name,classdate;";
    $result = $conn->query($sql);
     $colcount = $result->columnCount();
 
