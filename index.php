@@ -26,4 +26,4 @@ include_once('login.php');
     </div>
 </body>
 
-</html> 
+</html>

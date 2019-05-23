@@ -58,4 +58,32 @@ order by class.name,student.name,classdate;";
         echo('</tr>');
     }
     echo ('</table>');
-    echo "<br>";;
+    echo "<br>";
+
+    echo "<h1>Visitors<h1>";
+$sql = "select class.name as class_name, Visitor.name || ' ' || Visitor.surname as Visitor, date 
+from Visitor 
+inner join class on class.id = class_id
+order by class.name,Visitor.name,date;";
+   $resultV = $conn->query($sql);
+    $colcount = $resultV->columnCount();
+
+    // Get coluumn headers
+    echo ('<table><tr>');
+    for ($i = 0; $i < $colcount; $i++){
+        $meta = $resultV->getColumnMeta($i)["name"];
+        echo('<th>' . $meta . '</th>');
+    }
+    echo('</tr>');
+
+    // Get row data
+    while ($row = $resultV->fetch(PDO::FETCH_ASSOC)) {
+        echo('<tr>');
+        for ($i = 0; $i < $colcount; $i++){
+            $meta = $resultV->getColumnMeta($i)["name"];
+            echo('<td>' . $row[$meta] . '</td>');
+        }
+        echo('</tr>');
+    }
+    echo ('</table>');
+    echo "<br>";
