@@ -17,6 +17,8 @@
                 <legend><span class="number">#</span> Teacher's Menu</legend>
                 <input type="button" value="Do Attendance" onclick='window.location = "register.php";' />
                 <input type="button" value="Edit Attendance" onclick='window.location = "register_ed.php";' />
+                <input type="button" value="Add Visitor" onclick='window.location = "add_visitor.php";' />
+                <input type="button" value="Update Visitor" onclick='window.location = "update_visitor.php";' />
                 <br><br><br><br>
                 <input type="button" value="View Birthdays" onclick='window.location = "bdays.php";' />
                 <input type="button" value="View Absent" onclick='window.location = "absent.php";' />
@@ -55,4 +57,4 @@
     </div>
 </body>
 
-</html> 
+</html>
