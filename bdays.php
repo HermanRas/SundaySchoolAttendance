@@ -1,5 +1,11 @@
 <?php 
 require_once('session.php');
+
+//set filter month
+$bMonth = date("m");
+if (isset($_GET["bMonth"])){
+    $bMonth = $_GET["bMonth"];
+}
 ?>
 <html>
 
@@ -17,21 +23,41 @@ require_once('session.php');
         <form>
             <fieldset>
                 <legend><span class="number">#</span> Birthdays for
-                    <?php echo date("F"); ?> !</legend>
+                    <?php 
+                    $dateObj   = DateTime::createFromFormat('!m', $bMonth);
+                    $monthName = $dateObj->format('F'); // March
+                    echo $monthName;
+                    ?>!
+                </legend>
+
+                <form method="GET">
+                    <label for="bMonth">Select BirthDays Month:</label>
+                    <select name="bMonth" onchange="this.form.submit()">
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </form>
+
                 <?php
-                $classid = $_SESSION['class_id'];
                 include_once('db_open.php');
-                $sql = "SELECT name,surname,birthday,strftime('%d',birthday) as day, strftime('%W', strftime('%Y','now') || substr(birthday,5,6)) as Week
-                        FROM student 
-                        WHERE active != 0 and 
-                        strftime('%W', strftime('%Y','now') || substr(birthday,5,6)) = strftime('%W', DATETIME('now')) or 
-                        strftime('%W', strftime('%Y','now') || substr(birthday,5,6)) = strftime('%W', DATE('now','-7 day')) or 
-                        strftime('%W', strftime('%Y','now') || substr(birthday,5,6)) = strftime('%W', DATE('now','+7 day')) 
+                $sql = "SELECT name,surname,birthday,strftime('%d',birthday) as day, strftime('%m',birthday) as Month FROM student
+                        WHERE active != 0 
+                        and strftime('%m', birthday) = '$bMonth'  
                         ORDER BY day;";
                 $result = $conn->query($sql);
                 foreach ($result as $row) {
                     //set options
-                    echo '<h1>Week:' . $row['Week'] . ' | ' . $row['birthday'] . ' - ' . $row['name'] . ' ' . $row['surname'] . '</h1>';
+                    echo '<h1>' . $row['birthday'] . ' - ' . $row['name'] . ' ' . $row['surname'] . '</h1>';
                 }
                 ?>
                 <br /><br />

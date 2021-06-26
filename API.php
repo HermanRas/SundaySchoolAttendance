@@ -36,6 +36,7 @@ $sql = "select class.name as class_name, student.name || ' ' || student.surname 
 from attendance 
 inner join student on student.id = attendance.student_id 
 inner join class on class.id = class_id
+where attendance.classdate like '2020%'
 order by class.name,student.name,classdate;";
    $result = $conn->query($sql);
     $colcount = $result->columnCount();

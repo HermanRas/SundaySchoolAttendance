@@ -22,14 +22,12 @@ CREATE TABLE student (
 	surname TEXT NOT NULL,
 	birthday date,
 	age INTEGER,
-	school TEXT,
 	houseaddress TEXT,
 	mom TEXT,
 	momnum TEXT,
 	dad TEXT,
 	dadnum TEXT,
 	churchsms TEXT,
-	email TEXT,
 	active BIT,
     class_id INTEGER);
 
@@ -84,41 +82,3 @@ CREATE TABLE attendance (
 	classdate date NOT NULL,
     attended BIT NOT NULL,
 	student_id INTEGER NOT NULL);
-
-CREATE TABLE Visitor ( 
-	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
-	name TEXT NOT NULL,
-	surname TEXT,
-	date TEXT NOT NULL,
-    class_id INTEGER NOT NULL);
-
-/*
-#############################################
-Attendance Summary
-#############################################
-
-select class_id, classdate from "attendance" 
-left join student on student.id = student_id
-where class_id = 1
-group by class_id, classdate
-
-select class_id, classdate from "attendance" 
-left join student on student.id = student_id
-where class_id = 2
-group by class_id, classdate
-
-select class_id, classdate from "attendance" 
-left join student on student.id = student_id
-where class_id = 3
-group by class_id, classdate
-
-select class_id, classdate from "attendance" 
-left join student on student.id = student_id
-where class_id = 4
-group by class_id, classdate
-
-select class_id, classdate from "attendance" 
-left join student on student.id = student_id
-where class_id = 5
-group by class_id, classdate
-*/
